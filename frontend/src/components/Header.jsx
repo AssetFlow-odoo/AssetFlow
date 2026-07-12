@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ onMenuClick, title = "Today's Overview" }) => {
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   });
@@ -18,7 +18,7 @@ const Header = ({ onMenuClick }) => {
           </svg>
         </button>
         <div>
-          <h1 className="topbar-title">Today's Overview</h1>
+          {title && <h1 className="topbar-title">{title}</h1>}
           <p className="topbar-date">{today}</p>
         </div>
       </div>
