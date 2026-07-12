@@ -8,6 +8,10 @@ const {
   rescheduleBooking
 } = require('./bookings.controller');
 
+const authGuard = require('../../middleware/authGuard');
+
+router.use(authGuard);
+
 // GET /api/bookings/resources — list all bookable assets
 router.get('/resources', getBookableResources);
 

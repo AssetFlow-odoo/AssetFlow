@@ -1,10 +1,11 @@
 const Asset = require('../models/Asset');
 const AssetCategory = require('../models/AssetCategory');
+const Allocation = require('../models/Allocation');
 
 // GET /api/assets
 exports.getAssets = async (req, res) => {
   try {
-    const { search, categoryId, status } = req.query;
+    const { search, categoryId, status, forAllocation } = req.query;
     let query = {};
 
     // Apply search filter (tag, serial, or name)
@@ -27,14 +28,42 @@ exports.getAssets = async (req, res) => {
       query.status = status;
     }
 
+    // Filter out shared bookable resources if requested for allocation page
+    if (forAllocation === 'true') {
+      query.isSharedBookable = { $ne: true };
+    }
+
     const assets = await Asset.find(query)
       .populate('categoryId', 'name')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean();
+
+    let finalAssets = assets;
+
+    if (forAllocation === 'true') {
+      const userId = req.user.id;
+      
+      const enhancedAssets = await Promise.all(assets.map(async (asset) => {
+        if (asset.status === 'Allocated') {
+          const alloc = await Allocation.findOne({ assetId: asset._id, status: 'Active' })
+            .populate('assignedToUser', 'name')
+            .lean();
+          if (alloc && alloc.assignedToUser) {
+            asset.currentOwnerName = alloc.assignedToUser.name;
+            asset.currentOwnerId = alloc.assignedToUser._id.toString();
+          }
+        }
+        return asset;
+      }));
+
+      // Filter out assets actively allocated to the logged-in user
+      finalAssets = enhancedAssets.filter(a => a.currentOwnerId !== userId);
+    }
 
     res.status(200).json({
       success: true,
-      count: assets.length,
-      data: assets
+      count: finalAssets.length,
+      data: finalAssets
     });
   } catch (error) {
     console.error('Error fetching assets:', error);
