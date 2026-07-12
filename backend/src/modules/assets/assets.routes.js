@@ -3,6 +3,8 @@ const router = express.Router();
 const { getAssets, getCategories, createAsset } = require('./controllers/assetsController');
 const authGuard = require('../../middleware/authGuard');
 
+router.use(authGuard);
+
 // GET /api/assets/categories  — must be before /api/assets/:id
 router.get('/categories', getCategories);
 
@@ -10,6 +12,6 @@ router.get('/categories', getCategories);
 router.get('/', getAssets);
 
 // POST /api/assets
-router.post('/', authGuard, createAsset);
+router.post('/', createAsset);
 
 module.exports = router;

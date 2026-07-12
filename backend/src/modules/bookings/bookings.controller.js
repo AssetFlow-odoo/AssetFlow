@@ -102,18 +102,9 @@ exports.createBooking = async (req, res) => {
       });
     }
 
-    // Get bookedBy from token if available, else from body
     let bookedBy = req.body.bookedBy;
-    if (!bookedBy) {
-      // Try to extract from Authorization header
-      const token = req.headers.authorization?.split(' ')[1];
-      if (token) {
-        try {
-          const jwt = require('jsonwebtoken');
-          const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret_key');
-          bookedBy = decoded.id || decoded.userId;
-        } catch (e) { /* ignore */ }
-      }
+    if (!bookedBy && req.user) {
+      bookedBy = req.user.id;
     }
 
     if (!bookedBy) {

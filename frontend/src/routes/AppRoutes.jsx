@@ -8,6 +8,9 @@ import AdminRoute from '../components/AdminRoute';
 import Assets from '../pages/Assets';
 import ResourceBooking from '../pages/ResourceBooking';
 import Audit from '../pages/Audit';
+import Maintenance from '../pages/Maintenance';
+import Reports from '../pages/Reports';
+import Notifications from '../pages/Notifications';
 
 const AppRoutes = () => {
   return (
@@ -19,8 +22,11 @@ const AppRoutes = () => {
       <Route path="/allocation" element={<AllocationTransfer />} />
       <Route path="/booking" element={<ResourceBooking />} />
       <Route path="/audit" element={<Audit />} />
-      <Route
-        path="/organization-setup"
+      <Route path="/maintenance" element={<Maintenance />} />
+      <Route path="/reports" element={<Reports />} />
+      <Route path="/notifications" element={<Notifications />} />
+      <Route 
+        path="/organization-setup" 
         element={
           <AdminRoute>
             <OrganizationSetup />

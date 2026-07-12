@@ -115,7 +115,7 @@ const AllocationTransfer = () => {
       }
 
       const [assetsRes, usersRes, queueRes, recentRes] = await Promise.all([
-        axios.get('/api/assets', axiosConfig),
+        axios.get('/api/assets?forAllocation=true', axiosConfig),
         axios.get(usersUrl, axiosConfig),
         axios.get('/api/allocations/pending', axiosConfig),
         axios.get('/api/allocations/recent', axiosConfig)

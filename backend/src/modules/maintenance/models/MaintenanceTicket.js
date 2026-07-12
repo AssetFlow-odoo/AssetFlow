@@ -10,6 +10,8 @@ const maintenanceTicketSchema = new mongoose.Schema({
     default: 'Medium'
   },
   photoUrl: { type: String },
+  assignedTechnicianId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  externalTechnicianName: { type: String },
   status: { 
     type: String, 
     enum: ['Pending', 'Approved', 'Rejected', 'Technician Assigned', 'In Progress', 'Resolved'],

@@ -12,9 +12,12 @@ const departmentRoutes = require('./modules/users/routes/departmentRoutes');
 const userRoutes = require('./modules/users/routes/userRoutes');
 const categoryRoutes = require('./modules/assets/routes/categoryRoutes');
 const allocationRoutes = require('./modules/assets/routes/allocationRoutes');
-const assetRoutes = require('./modules/assets/routes/assetRoutes');
 const bookingsRoutes = require('./modules/bookings/bookings.routes');
 const auditsRoutes = require('./modules/audits/audits.routes');
+const maintenanceRoutes = require('./modules/maintenance/maintenanceRoutes');
+const reportRoutes = require('./modules/reports/reportRoutes');
+const notificationRoutes = require('./modules/notifications/notificationRoutes');
+const path = require('path');
 
 // Initialize the Express app
 const app = express();
@@ -25,6 +28,10 @@ connectDB();
 // Built-in Express middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve uploaded photos statically
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 // Mount the routes to a specific path
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
@@ -33,9 +40,11 @@ app.use('/api/departments', departmentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/allocations', allocationRoutes);
-app.use('/api/assets', assetRoutes);
 app.use('/api/bookings', bookingsRoutes);
 app.use('/api/audits', auditsRoutes);
+app.use('/api/maintenance', maintenanceRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Basic test route
 app.get('/', (req, res) => {
