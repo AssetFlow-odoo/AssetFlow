@@ -2,7 +2,13 @@ const User = require('../models/User');
 
 exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find()
+    const { departmentId } = req.query;
+    let query = {};
+    if (departmentId) {
+      query.departmentId = departmentId;
+    }
+
+    const users = await User.find(query)
       .populate('departmentId', 'name')
       .lean();
     res.status(200).json({ success: true, data: users });

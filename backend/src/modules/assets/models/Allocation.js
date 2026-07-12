@@ -9,9 +9,16 @@ const allocationSchema = new mongoose.Schema({
   actualReturnDate: { type: Date },
   status: { 
     type: String, 
-    enum: ['Active', 'Returned', 'TransferPending'],
+    enum: ['Active', 'Returned', 'TransferPending', 'Pending Approval', 'Rejected'],
     default: 'Active'
   },
+  type: {
+    type: String,
+    enum: ['Allocation', 'Transfer'],
+    default: 'Allocation'
+  },
+  reason: { type: String },
+  oldAllocationId: { type: mongoose.Schema.Types.ObjectId, ref: 'Allocation' },
   checkInNotes: { type: String }
 }, { timestamps: true });
 
