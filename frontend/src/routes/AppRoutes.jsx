@@ -9,6 +9,7 @@ import Assets from '../pages/Assets';
 import ResourceBooking from '../pages/ResourceBooking';
 import Maintenance from '../pages/Maintenance';
 import Reports from '../pages/Reports';
+import Notifications from '../pages/Notifications';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path="/booking" element={<ResourceBooking />} />
       <Route path="/maintenance" element={<Maintenance />} />
       <Route path="/reports" element={<Reports />} />
+      <Route path="/notifications" element={<Notifications />} />
       <Route 
         path="/organization-setup" 
         element={
