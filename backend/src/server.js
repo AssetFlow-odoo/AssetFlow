@@ -6,6 +6,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 // Import the routes
 const authRoutes = require('./modules/auth/routes/authRoutes');
+const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
 
 // Initialize the Express app
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 // Mount the routes to a specific path
 app.use('/api/auth', authRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Basic test route
 app.get('/', (req, res) => {

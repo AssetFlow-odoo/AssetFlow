@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -32,6 +34,7 @@ const Auth = () => {
         const res = await axios.post('/api/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
         console.log('Login successful', res.data);
+        navigate('/dashboard');
       } else {
         // Signup Logic
         await axios.post('/api/auth/signup', { name, email, password });
