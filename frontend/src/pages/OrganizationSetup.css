@@ -1,0 +1,120 @@
+.org-setup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.org-setup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.org-setup-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.org-tab-btn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #a0aec0;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.org-tab-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.org-tab-btn.active {
+  background-color: rgba(6, 78, 59, 0.2); /* Dark green tint */
+  border-color: #10b981; /* Emerald green border */
+  color: #10b981;
+}
+
+.org-add-btn {
+  background-color: rgba(6, 78, 59, 0.2);
+  border: 1px solid #10b981;
+  color: #10b981;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.org-add-btn:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.org-table-container {
+  background-color: #131826;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.org-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.org-table th {
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a0aec0;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.org-table td {
+  padding: 16px;
+  font-size: 14px;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.org-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-active {
+  background-color: rgba(6, 78, 59, 0.2);
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.status-inactive {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #a0aec0;
+}
+
+.org-footer-text {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #a0aec0;
+  font-size: 14px;
+}
