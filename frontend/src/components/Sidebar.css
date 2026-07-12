@@ -1,0 +1,128 @@
+.sidebar {
+  width: 210px;
+  min-width: 210px;
+  background-color: #141821;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  border-right: 1px solid #1E2433;
+  transition: transform 0.25s ease;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px;
+  border-bottom: 1px solid #1E2433;
+}
+
+.sidebar-logo-box {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebar-brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #F1F5F9;
+  flex: 1;
+}
+
+/* Close button — hidden on desktop, shown on mobile */
+.sidebar-close-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 0;
+  transition: color 0.15s, background-color 0.15s;
+}
+.sidebar-close-btn:hover {
+  color: #94A3B8;
+  background-color: #1E2433;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 8px;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: #64748B;
+  transition: background-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: #1E2433;
+  color: #94A3B8;
+}
+
+.nav-link--active {
+  background-color: #1E2A4A;
+  color: #6366F1;
+  font-weight: 500;
+}
+
+.nav-link--active:hover {
+  background-color: #1E2A4A;
+  color: #6366F1;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ───────────────────────────
+   RESPONSIVE
+─────────────────────────── */
+
+/* On mobile: sidebar slides off-screen to the left by default */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 230px;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+  }
+
+  /* When open, slide in */
+  .sidebar--open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn {
+    display: flex;
+  }
+}

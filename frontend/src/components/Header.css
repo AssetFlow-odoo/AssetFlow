@@ -1,0 +1,135 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background-color: #0F1117;
+  border-bottom: 1px solid #1E2433;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.topbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #F1F5F9;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.topbar-date {
+  font-size: 12px;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.period-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background-color: #1A2035;
+  border: 1px solid #1E2A4A;
+  border-radius: 6px;
+  color: #94A3B8;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+}
+
+.period-btn:hover {
+  background-color: #1E2433;
+}
+
+.notif-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background-color: #1A2035;
+  border: 1px solid #1E2A4A;
+  border-radius: 6px;
+  color: #64748B;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.notif-btn:hover {
+  background-color: #1E2433;
+  color: #94A3B8;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background-color: #1A2035;
+  border: 1px solid #1E2A4A;
+  border-radius: 6px;
+  color: #94A3B8;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s;
+}
+
+.hamburger-btn:hover {
+  background-color: #1E2433;
+}
+
+/* ───────────────────────────
+   RESPONSIVE
+─────────────────────────── */
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .topbar-title {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide "Last 7 days" text label on very small screens */
+  .period-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .topbar-title {
+    font-size: 15px;
+  }
+
+  .topbar-date {
+    display: none;
+  }
+}

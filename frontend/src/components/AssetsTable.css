@@ -1,0 +1,122 @@
+.assets-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.assets-card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.assets-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0F172A;
+  margin-bottom: 2px;
+}
+
+.assets-subtitle {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.assets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.assets-table thead tr {
+  background-color: #F8FAFC;
+}
+
+.assets-table th {
+  padding: 12px 24px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+.assets-table td {
+  padding: 16px 24px;
+  color: #0F172A;
+  border-top: 1px solid #F1F5F9;
+  vertical-align: middle;
+}
+
+.assets-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+.asset-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asset-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: #EFF6FF;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asset-name-text {
+  font-weight: 500;
+  color: #0F172A;
+}
+
+.mono-text {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 13px;
+  color: #64748B;
+}
+
+.date-text {
+  color: #64748B;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-active {
+  background-color: #DEF7EC;
+  color: #03543F;
+}
+
+.badge-pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.badge-approved {
+  background-color: #DEF7EC;
+  color: #03543F;
+}
+
+.badge-rejected {
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+}
