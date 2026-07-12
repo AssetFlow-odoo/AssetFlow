@@ -25,7 +25,7 @@ const AppRoutes = () => {
           <AdminRoute>
             <OrganizationSetup />
           </AdminRoute>
-        } 
+        }
       />
       {/* Add more routes here later */}
     </Routes>
