@@ -1,19 +1,21 @@
 const mongoose = require('mongoose');
 
-const auditCycleSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  scope: {
-    departmentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Department' },
-    location: { type: String }
-  },
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true },
-  auditors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  status: { 
+const auditItemSchema = new mongoose.Schema({
+  auditCycleId: { type: mongoose.Schema.Types.ObjectId, ref: 'AuditCycle', required: true },
+  assetId: { type: mongoose.Schema.Types.ObjectId, ref: 'Asset', required: true },
+  
+  // Snapshots taken when cycle is created
+  expectedLocation: { type: String },
+  expectedDepartmentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Department' },
+  expectedStatus: { type: String },
+
+  verificationStatus: { 
     type: String, 
-    enum: ['Open', 'Closed'],
-    default: 'Open'
-  }
+    enum: ['Pending', 'Verified', 'Missing', 'Damaged'],
+    default: 'Pending'
+  },
+  auditedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  notes: { type: String }
 }, { timestamps: true });
 
-module.exports = mongoose.model('AuditCycle', auditCycleSchema);
+module.exports = mongoose.model('AuditItem', auditItemSchema);
