@@ -217,9 +217,9 @@ exports.approveRequest = async (req, res) => {
     await asset.save();
 
     await ActivityLog.create({
-      userId: req.user.id,
-      actionType: allocation.type === 'Transfer' ? 'Transfer Approved' : 'Allocation Approved',
-      message: `Approved ${allocation.type} for ${asset.name}`,
+      userId: allocation.assignedToUser,
+      actionType: allocation.type === 'Transfer' ? 'TRANSFER_APPROVED' : 'ASSET_ASSIGNED',
+      message: `Your ${allocation.type.toLowerCase()} request for ${asset.name} has been approved.`,
       referenceId: allocation._id
     });
 
