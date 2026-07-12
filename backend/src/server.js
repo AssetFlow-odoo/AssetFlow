@@ -11,12 +11,9 @@ const assetsRoutes = require('./modules/assets/assets.routes');
 const departmentRoutes = require('./modules/users/routes/departmentRoutes');
 const userRoutes = require('./modules/users/routes/userRoutes');
 const categoryRoutes = require('./modules/assets/routes/categoryRoutes');
-<<<<<<< HEAD
 const allocationRoutes = require('./modules/assets/routes/allocationRoutes');
 const assetRoutes = require('./modules/assets/routes/assetRoutes');
-=======
 const bookingsRoutes = require('./modules/bookings/bookings.routes');
->>>>>>> 9df1e82 (Implemented Resource Booking)
 
 // Initialize the Express app
 const app = express();
@@ -34,12 +31,9 @@ app.use('/api/assets', assetsRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
-<<<<<<< HEAD
 app.use('/api/allocations', allocationRoutes);
 app.use('/api/assets', assetRoutes);
-=======
 app.use('/api/bookings', bookingsRoutes);
->>>>>>> 9df1e82 (Implemented Resource Booking)
 
 // Basic test route
 app.get('/', (req, res) => {

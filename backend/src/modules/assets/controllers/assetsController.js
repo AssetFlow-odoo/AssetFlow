@@ -59,6 +59,10 @@ exports.getCategories = async (req, res) => {
 // POST /api/assets — Register a new asset
 exports.createAsset = async (req, res) => {
   try {
+    if (req.user.role !== 'Asset Manager') {
+      return res.status(403).json({ success: false, message: 'Only Asset Managers can register assets' });
+    }
+
     const {
       assetTag, name, categoryId, serialNumber, acquisitionDate,
       acquisitionCost, condition, location, isSharedBookable, status

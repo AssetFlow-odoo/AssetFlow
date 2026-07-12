@@ -103,6 +103,7 @@ const navItems = [
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className={`sidebar${isOpen ? ' sidebar--open' : ''}`}>
