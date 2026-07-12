@@ -15,18 +15,15 @@ const AppRoutes = () => {
       <Route path="/login" element={<Auth />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/assets" element={<Assets />} />
-<<<<<<< HEAD
       <Route path="/allocation" element={<AllocationTransfer />} />
-=======
       <Route path="/booking" element={<ResourceBooking />} />
->>>>>>> 9df1e82 (Implemented Resource Booking)
-      <Route 
-        path="/organization-setup" 
+      <Route
+        path="/organization-setup"
         element={
           <AdminRoute>
             <OrganizationSetup />
           </AdminRoute>
-        } 
+        }
       />
       {/* Add more routes here later */}
     </Routes>
