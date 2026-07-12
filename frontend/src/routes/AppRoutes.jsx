@@ -7,6 +7,7 @@ import AllocationTransfer from '../pages/AllocationTransfer';
 import AdminRoute from '../components/AdminRoute';
 import Assets from '../pages/Assets';
 import ResourceBooking from '../pages/ResourceBooking';
+import Audit from '../pages/Audit';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/assets" element={<Assets />} />
       <Route path="/allocation" element={<AllocationTransfer />} />
       <Route path="/booking" element={<ResourceBooking />} />
+      <Route path="/audit" element={<Audit />} />
       <Route
         path="/organization-setup"
         element={

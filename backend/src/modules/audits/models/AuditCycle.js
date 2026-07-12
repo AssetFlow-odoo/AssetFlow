@@ -8,12 +8,13 @@ const auditCycleSchema = new mongoose.Schema({
   },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
-  auditors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  auditors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // Employees in "Auditors" department
   status: { 
     type: String, 
-    enum: ['Open', 'Closed'],
+    enum: ['Open', 'In Progress', 'Closed'],
     default: 'Open'
-  }
+  },
+  discrepancyReport: { type: mongoose.Schema.Types.Mixed } // To store the report summary when closed
 }, { timestamps: true });
 
 module.exports = mongoose.model('AuditCycle', auditCycleSchema);

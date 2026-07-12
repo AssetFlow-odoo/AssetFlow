@@ -14,6 +14,7 @@ const categoryRoutes = require('./modules/assets/routes/categoryRoutes');
 const allocationRoutes = require('./modules/assets/routes/allocationRoutes');
 const assetRoutes = require('./modules/assets/routes/assetRoutes');
 const bookingsRoutes = require('./modules/bookings/bookings.routes');
+const auditsRoutes = require('./modules/audits/audits.routes');
 
 // Initialize the Express app
 const app = express();
@@ -34,6 +35,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/allocations', allocationRoutes);
 app.use('/api/assets', assetRoutes);
 app.use('/api/bookings', bookingsRoutes);
+app.use('/api/audits', auditsRoutes);
 
 // Basic test route
 app.get('/', (req, res) => {
