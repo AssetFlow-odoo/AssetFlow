@@ -1,0 +1,85 @@
+.db-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0F1117;
+  position: relative;
+}
+
+/* Push content past fixed sidebar on desktop */
+.db-main {
+  margin-left: 210px;
+  width: calc(100% - 210px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.db-content {
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ── Stat Cards Grid: 3 equal columns ── */
+.db-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+/* ── Mobile overlay ── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 49;
+}
+
+/* ───────────────────────────
+   RESPONSIVE BREAKPOINTS
+─────────────────────────── */
+
+@media (max-width: 1024px) {
+  .db-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .db-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .db-content {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .db-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .db-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .db-content {
+    padding: 12px;
+    gap: 12px;
+  }
+}

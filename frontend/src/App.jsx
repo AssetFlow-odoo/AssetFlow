@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
-import './App.css'; // Make sure Tailwind is imported here or in index.css
+import './index.css';
+import './App.css';
 
 function App() {
   return (
