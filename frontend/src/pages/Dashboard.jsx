@@ -42,7 +42,6 @@ const ClockIcon = (
 const stats = [
   { label: 'AVAILABLE',         value: '128', valueColor: '#34D399', icon: CheckCircleIcon, iconColor: '#34D399' },
   { label: 'ALLOCATED',         value: '76',  valueColor: '#A78BFA', icon: PersonIcon,      iconColor: '#A78BFA' },
-  { label: 'AVAILABLE ROOMS',   value: '4',   valueColor: '#60A5FA', icon: BuildingIcon,    iconColor: '#60A5FA' },
   { label: 'ACTIVE BOOKINGS',   value: '9',   valueColor: '#FB923C', icon: CalendarIcon,    iconColor: '#FB923C' },
   { label: 'PENDING TRANSFERS', value: '3',   valueColor: '#F472B6', icon: ArrowRightIcon,  iconColor: '#F472B6' },
   { label: 'UPCOMING RETURNS',  value: '12',  valueColor: '#FACC15', icon: ClockIcon,       iconColor: '#FACC15' },
