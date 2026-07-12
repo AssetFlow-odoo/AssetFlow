@@ -25,7 +25,7 @@ const Auth = () => {
     }
 
     setLoading(true);
-    
+
     try {
       if (isLogin) {
         // Login Logic
@@ -34,9 +34,10 @@ const Auth = () => {
         console.log('Login successful', res.data);
       } else {
         // Signup Logic
-        const res = await axios.post('/api/auth/signup', { name, email, password });
-        localStorage.setItem('token', res.data.token);
-        console.log('Signup successful', res.data);
+        await axios.post('/api/auth/signup', { name, email, password });
+        console.log('Signup successful, redirecting to login...');
+        setIsLogin(true);
+        setFormData({ name: '', email: email, password: '', confirmPassword: '' });
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong');
@@ -52,7 +53,7 @@ const Auth = () => {
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-teal-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="w-full max-w-md bg-[#131826] border border-white/5 rounded-2xl p-8 shadow-2xl relative z-10">
-        
+
         {/* Header Section */}
         <div className="border-b border-white/5 pb-6 mb-6">
           {/* Logo */}
