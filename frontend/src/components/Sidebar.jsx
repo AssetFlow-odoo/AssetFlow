@@ -153,5 +153,5 @@ const Sidebar = ({ isOpen, onClose }) => {
     </div>
   </div>
 );
-
+}
 export default Sidebar;
