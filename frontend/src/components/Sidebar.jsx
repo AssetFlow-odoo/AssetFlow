@@ -120,8 +120,12 @@ const Sidebar = ({ isOpen, onClose }) => {
     <nav className="sidebar-nav">
       {navItems
         .filter((item) => {
+          const role = localStorage.getItem('userRole');
           if (item.label === 'Organization Setup') {
-            return localStorage.getItem('userRole') === 'Admin';
+            return role === 'Admin';
+          }
+          if (item.label === 'Reports') {
+            return role !== 'Employee';
           }
           return true;
         })
