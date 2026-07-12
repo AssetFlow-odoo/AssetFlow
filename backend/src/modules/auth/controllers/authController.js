@@ -81,7 +81,7 @@ exports.login = async (req, res) => {
       { expiresIn: '1d' },
       (err, token) => {
         if (err) throw err;
-        res.status(200).json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
+        res.status(200).json({ token, user: { id: user.id, name: user.name, email: user.email, role: user.role, departmentId: user.departmentId } });
       }
     );
   } catch (err) {

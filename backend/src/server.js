@@ -10,6 +10,8 @@ const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
 const departmentRoutes = require('./modules/users/routes/departmentRoutes');
 const userRoutes = require('./modules/users/routes/userRoutes');
 const categoryRoutes = require('./modules/assets/routes/categoryRoutes');
+const allocationRoutes = require('./modules/assets/routes/allocationRoutes');
+const assetRoutes = require('./modules/assets/routes/assetRoutes');
 
 // Initialize the Express app
 const app = express();
@@ -26,6 +28,8 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/allocations', allocationRoutes);
+app.use('/api/assets', assetRoutes);
 
 // Basic test route
 app.get('/', (req, res) => {
