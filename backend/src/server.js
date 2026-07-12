@@ -7,9 +7,12 @@ const connectDB = require('./config/db');
 // Import the routes
 const authRoutes = require('./modules/auth/routes/authRoutes');
 const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
+const assetsRoutes = require('./modules/assets/assets.routes');
 const departmentRoutes = require('./modules/users/routes/departmentRoutes');
 const userRoutes = require('./modules/users/routes/userRoutes');
 const categoryRoutes = require('./modules/assets/routes/categoryRoutes');
+const allocationRoutes = require('./modules/assets/routes/allocationRoutes');
+const assetRoutes = require('./modules/assets/routes/assetRoutes');
 
 // Initialize the Express app
 const app = express();
@@ -23,9 +26,12 @@ app.use(express.json());
 // Mount the routes to a specific path
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/assets', assetsRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/allocations', allocationRoutes);
+app.use('/api/assets', assetRoutes);
 
 // Basic test route
 app.get('/', (req, res) => {
