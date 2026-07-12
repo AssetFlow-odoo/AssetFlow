@@ -33,8 +33,13 @@ const Auth = () => {
         // Login Logic
         const res = await axios.post('/api/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
-        if (res.data.user && res.data.user.role) {
+        if (res.data.user) {
           localStorage.setItem('userRole', res.data.user.role);
+          localStorage.setItem('userId', res.data.user.id);
+          localStorage.setItem('userName', res.data.user.name);
+          if (res.data.user.departmentId) {
+            localStorage.setItem('userDeptId', res.data.user.departmentId);
+          }
         }
         console.log('Login successful', res.data);
         navigate('/dashboard');
