@@ -118,7 +118,14 @@ const Sidebar = ({ isOpen, onClose }) => {
       </button>
     </div>
     <nav className="sidebar-nav">
-      {navItems.map((item) => (
+      {navItems
+        .filter((item) => {
+          if (item.label === 'Organization Setup') {
+            return localStorage.getItem('userRole') === 'Admin';
+          }
+          return true;
+        })
+        .map((item) => (
         <NavLink
           key={item.label}
           to={item.path}
